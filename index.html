@@ -8,22 +8,28 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <title>Document</title>
 
-    <style>
-
-    </style>
     <script>
-        var socket = io();
+        $(function () {
+            var socket = io();
+            $('form').submit(function (e) {
+                e.preventDefault(); // prevents page reloading
+                socket.emit('chat message', $('#m').val());
+                $('#m').val('');
+                return false;
+            });
+        });
     </script>
 </head>
 
 <body>
-    <div class="input-group mb-3 fixed-bottom">
-        <input type="text" class="form-control border border-dark" placeholder="Message" aria-label="Message"
-            aria-describedby="basic-addon2">
+    <div class="input-group mb-3 fixed-bottom container">
+        <input type="text" class="form-control border border-dark bg-dark text-light" placeholder="Message"
+            aria-label="Message" aria-describedby="basic-addon2">
         <div class="input-group-append">
-            <button class="btn btn-outline-secondary bg-primary text-white" type="button">Send</button>
+            <button class="btn btn-primary" type="button">Send</button>
         </div>
     </div>
 

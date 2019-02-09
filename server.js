@@ -7,14 +7,13 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-/*io.on('connection', (socket) => {
-    console.log('connected');
-    socket.emit('request'); // emit an event to the socket
-    io.emit('broadcast'); // emit an event to all connected sockets
-    socket.on('disconnect', () => {
-        console.log('disconnected');
+io.on('connection', (socket) => {
+    //socket.emit('request'); // emit an event to the socket
+    //io.emit('broadcast'); // emit an event to all connected sockets
+    socket.on('chat message', (msg) => {
+        console.log('message: ' + msg);
     });
-});*/
+});
 
 const port = 3000;
 server.listen(port, () => {
