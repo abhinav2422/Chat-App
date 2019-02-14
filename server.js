@@ -10,7 +10,8 @@ app.engine('handlebars', exphbs({
 app.set('view engine', 'handlebars');
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.render('index');
+    //res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 io.on('connection', (socket) => {

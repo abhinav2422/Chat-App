@@ -9,9 +9,26 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
     <title>Document</title>
 
     <script>
+        /*$(function () {
+            var socket = io.connect('http://localhost:3000');
+
+            var message = $("#message");
+            var username = $("#username");
+            var send_message = $("#send_message");
+            var send_username = $("#send_username");
+            var chatroom = $("#chatroom");
+
+            send_username.click(function() {
+                console.log(username.val());
+                socket.emit('change_username', {
+                username: username.val()
+                });
+            });
+        });*/
         $(function () {
             var socket = io();
             $('form').submit(function (e) {
@@ -39,18 +56,10 @@
             background: #eee;
         }
     </style>
-
 </head>
 
 <body>
-    <ul id="messages"></ul>
-    <form action="">
-        <div class="input-group mb-3 fixed-bottom container">
-            <input type="text" class="form-control border border-dark bg-dark text-light" placeholder="Message"
-                id="m" />
-            <button class="btn btn-primary">Send</button>
-        </div>
-    </form>
+    {{{body}}}
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
