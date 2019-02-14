@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 });
 
 io.on('connection', (socket) => {
-    console.log('connected');
+    io.emit('chat message', 'A user connected');
     //socket.emit('request'); // emit an event to the socket
     //io.emit('broadcast'); // emit an event to all connected sockets
     //socket.username="Anonymous";
@@ -24,7 +24,6 @@ io.on('connection', (socket) => {
         socket.username = data.username;
     });*/
     socket.on('chat message', (msg) => {
-        console.log(msg);
         io.emit('chat message', msg);
     });
 });
