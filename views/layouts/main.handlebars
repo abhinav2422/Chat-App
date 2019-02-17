@@ -7,28 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
     <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="script.js"></script>
+
     <title>Chatroom</title>
 
     <script>
-        /*$(function () {
-            var socket = io.connect('http://localhost:3000');
-
-            var message = $("#message");
-            var username = $("#username");
-            var send_message = $("#send_message");
-            var send_username = $("#send_username");
-            var chatroom = $("#chatroom");
-
-            send_username.click(function() {
-                console.log(username.val());
-                socket.emit('change_username', {
-                username: username.val()
-                });
-            });
-        });*/
         $(function () {
             var socket = io();
             $('form').submit(function (e) {
@@ -45,20 +31,6 @@
             });
         });
     </script>
-
-    <style>
-        #messages {
-            list-style-type: none;
-        }
-
-        #messages li {
-            padding: 5px 10px;
-        }
-
-        #messages li:nth-child(odd) {
-            background: #eee;
-        }
-    </style>
 </head>
 
 <body>
