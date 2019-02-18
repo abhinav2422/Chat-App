@@ -24,10 +24,17 @@
                 return false;
             });
             socket.on('chat message', function (msg) {
-                //$("#con").text('connected');
-            });
-            socket.on('chat message', function (msg) {
                 $('#messages').append($('<li>').text(msg));
+            });
+
+            //var username = $("#username");
+            //var send_username = $("#send_username");
+
+            $('#send_username').click(function () {
+                console.log($('#username').val());
+                socket.emit('change_username', {
+                    username: $('#username').val()
+                });
             });
         });
     </script>
