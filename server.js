@@ -29,8 +29,16 @@ io.on('connection', (socket) => {
         socket.username = data.username;
     });*/
 
+    socket.on('change_username', (username) => {
+        socket.username = username;
+        console.log(socket.username);
+        //users.push(socket.username);
+        //console.log(users);
+    });
+
     socket.on('chat message', (msg) => {
-        io.emit('chat message', {message: msg, username: socket.username});
+        console.log(msg);
+        io.emit('chat message', msg);
     });
     
     socket.on('disconnect', function() {

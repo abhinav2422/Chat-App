@@ -27,14 +27,8 @@
                 $('#messages').append($('<li>').text(msg));
             });
 
-            //var username = $("#username");
-            //var send_username = $("#send_username");
-
             $('#send_username').click(function () {
-                console.log($('#username').val());
-                socket.emit('change_username', {
-                    username: $('#username').val()
-                });
+                socket.emit('change_username', $('#username').val());
             });
         });
     </script>
