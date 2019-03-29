@@ -1,17 +1,16 @@
 /*$(function () {
-    var socket = io.connect('http://localhost:3000');
+    var socket = io();
+    $('form').submit(function (e) {
+        e.preventDefault(); // prevents page reloading
+        socket.emit('chat message', $('#m').val());
+        $('#m').val('');
+        return false;
+    });
+    socket.on('chat message', function (msg) {
+        $('#messages').append($('<li>').text(msg));
+    });
 
-    var message = $("#message");
-    var username = $("#username");
-    var send_message = $("#send_message");
-    var send_username = $("#send_username");
-    var chatroom = $("#chatroom");
-
-    send_username.click(function() {
-        console.log(username.val());
-        socket.emit('change_username', {
-        username: username.val()
-        });
+    $('#send_username').click(function () {
+        socket.emit('change_username', $('#username').val());
     });
 });*/
-
