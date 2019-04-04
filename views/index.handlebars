@@ -1,8 +1,10 @@
 <section>
     <div id="change_username">
-        <input id="username" type="text" class="m-1 bg-light" placeholder="Anonymous"/>
+        <input id="username" type="text" class="m-1 bg-light" placeholder="Anonymous" />
         <button id="send_username" class="btn btn-dark">Change username</button>
     </div>
+
+    <div id="flashMsg" class="float-right"></div>
 </section>
 
 <section id="chatroom">
@@ -10,8 +12,9 @@
 </section>
 
 <p id="con"></p>
-
-<ul id="messages"></ul>
+<div>
+    <ul id="messages"></ul>
+</div>
 <form action="">
     <div class="input-group mb-3 fixed-bottom container">
         <input type="text" class="form-control border border-dark bg-dark text-light" placeholder="Message" id="m" />

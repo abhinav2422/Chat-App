@@ -1,4 +1,4 @@
-/*$(function () {
+$(function () {
     var socket = io();
     $('form').submit(function (e) {
         e.preventDefault(); // prevents page reloading
@@ -13,4 +13,4 @@
     $('#send_username').click(function () {
         socket.emit('change_username', $('#username').val());
     });
-});*/
+});

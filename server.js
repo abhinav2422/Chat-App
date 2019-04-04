@@ -19,23 +19,22 @@ app.get('/', (req, res) => {
 
 io.on('connection', (socket) => {
     var user = 'Anon';
+
     socket.emit('chat message', 'You connected');
-    socket.broadcast.emit('chat message', 'A user connected');
+    socket.broadcast.emit('chat message', user + ' connected');
 
     socket.on('change_username', (username) => {
+        io.emit('chat message', user + ' changed name to ' + username);
         user = username;
-        //user.push(socket.username);
-        //console.log(socket.username);
-        console.log(user);
+        //console.log(user);
     });
 
     socket.on('chat message', (msg) => {
-        //console.log(msg);
         io.emit('chat message', user + ': ' + msg);
     });
     
     socket.on('disconnect', function() {
-        socket.broadcast.emit('chat message', 'A user disconnected');
+        socket.broadcast.emit('chat message', user + ' disconnected');
     });
 });
 
